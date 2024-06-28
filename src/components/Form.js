@@ -14,11 +14,11 @@ export default function Form({ setList, isEditing, currentMeme, handleSave }) {
                 bottomText: currentMeme.bottomText,
                 imgUrl: currentMeme.imgUrl
             });
-        } else {
+        } else if (currentMeme) {
             setInputs({
                 topText: "",
                 bottomText: "",
-                imgUrl: ""
+                imgUrl: currentMeme.imgUrl
             });
         }
     }, [isEditing, currentMeme]);
@@ -73,13 +73,6 @@ export default function Form({ setList, isEditing, currentMeme, handleSave }) {
                     onChange={handleChange}
                     className="form--input"
                 />
-                {/* <input
-                    placeholder="Image URL"
-                    name="imgUrl"
-                    value={inputs.imgUrl}
-                    onChange={handleChange}
-                    className="form--input"
-                /> */}
                 <button className="form--button" type="submit">
                     {isEditing ? "Save" : "Submit"}
                 </button>
